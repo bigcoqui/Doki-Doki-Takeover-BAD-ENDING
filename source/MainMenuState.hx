@@ -245,7 +245,6 @@ class MainMenuState extends MusicBeatState
 		{
 			var ctrl = FlxG.keys.justPressed.CONTROL;
 
-			#if debug
 			if (FlxG.keys.justPressed.O #if android || _virtualpad.buttonC.justPressed #end)
 			{
 				trace('unlock all');
@@ -261,8 +260,6 @@ class MainMenuState extends MusicBeatState
 				ClientPrefs.firststart = true;
 				ClientPrefs.saveSettings();
 			}
-			#end
-
 
 			if (controls.UI_UP_P)
 			{
