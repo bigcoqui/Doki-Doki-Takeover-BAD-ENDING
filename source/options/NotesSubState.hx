@@ -221,7 +221,12 @@ class NotesSubState extends MusicBeatSubstate
 		{
 			if (!changingNote)
 			{
-				close();
+			  #if android
+			  flixel.addons.transition.FlxTransitionableState.skipNextTransOut = true;
+			  FlxG.resetState();
+			  #else
+			  close();
+			  #end
 			}
 			else
 			{
