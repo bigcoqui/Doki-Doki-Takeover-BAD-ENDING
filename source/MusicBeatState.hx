@@ -30,25 +30,6 @@ class MusicBeatState extends FlxUIState
 
 	inline function get_controls():Controls
 		return PlayerSettings.player1.controls;
-		
-  76  
-source/MusicBeatState.hx
-@@ -14,6 +14,11 @@ import flixel.util.FlxGradient;
-import openfl.filters.ShaderFilter;
-import flixel.FlxState;
-import flixel.FlxBasic;
-#if android
-import flixel.input.actions.FlxActionInput;
-import android.AndroidControls.AndroidControls;
-import android.FlxVirtualPad;
-#end
-
-class MusicBeatState extends FlxUIState
-{
-@@ -27,6 +32,77 @@ class MusicBeatState extends FlxUIState
-
-	inline function get_controls():Controls
-		return PlayerSettings.player1.controls;
 
 	#if android
 	var _virtualpad:FlxVirtualPad;
