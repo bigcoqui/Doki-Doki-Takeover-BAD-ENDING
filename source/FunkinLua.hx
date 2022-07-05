@@ -171,6 +171,7 @@ class FunkinLua
 		set('noResetButton', ClientPrefs.noReset);
 		set('lowQuality', ClientPrefs.lowQuality);
 
+		#if MODS_ALLOWED
 		Lua_helper.add_callback(lua, "addLuaScript", function(luaFile:String, ?ignoreAlreadyRunning:Bool = false)
 		{ // would be dope asf.
 			var cervix = luaFile + ".lua";
@@ -207,6 +208,7 @@ class FunkinLua
 			}
 			luaTrace("Script doesn't exist!");
 		});
+		#end
 
 		Lua_helper.add_callback(lua, "getProperty", function(variable:String)
 		{
