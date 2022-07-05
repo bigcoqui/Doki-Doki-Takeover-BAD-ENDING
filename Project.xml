@@ -44,10 +44,10 @@
 	<classpath name="source" />
 
 	<!-- PSYCH ENGINE CUSTOMIZATION -->
-	<define name="MODS_ALLOWED" if="desktop || android" />
+	<define name="MODS_ALLOWED" if="desktop" />
 	<define name="LUA_ALLOWED" if="windows || android" />
 	<!-- <define name="ACHIEVEMENTS_ALLOWED" /> -->
-	<define name="VIDEOS_ALLOWED" if="web || desktop || android" unless="32bits"/>
+	<define name="VIDEOS_ALLOWED" if="web || desktop || android"/>
 	<define name="PSYCH_WATERMARKS"/> <!-- DELETE THIS TO REMOVE WATERMARKS ON TITLE SCREEN -->
 
 	<!-- DONT ENABLE THIS -->
@@ -111,7 +111,7 @@
 	<!-- <haxelib name="faxe" if='switch'/> -->
 	<!--<haxelib name="polymod"/> -->
 	<haxelib name="discord_rpc" if="desktop"/>
-	<haxelib name="extension-videoview" if="android"/>
+	<haxelib name="extension-webview" if="android"/>
 	<haxelib name="extension-androidtools" if="android"/>
 
 	<config:android permission="android.permission.READ_EXTERNAL_STORAGE" if="android"/>
