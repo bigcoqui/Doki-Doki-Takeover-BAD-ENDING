@@ -1406,7 +1406,7 @@ class FunkinLua
 				var shit:DialogueFile = DialogueBoxPsych.parseDialogue(path);
 				if (shit.dialogue.length > 0)
 				{
-					lePlayState.startDialogue(shit, music);
+					PlayState.instance.startDialogue(shit, music);
 					luaTrace('Successfully loaded dialogue');
 				}
 				else
@@ -1419,11 +1419,11 @@ class FunkinLua
 				luaTrace('Dialogue file not found');
 				if (lePlayState.endingSong)
 				{
-					lePlayState.endSong();
+          PlayState.instance.endSong();
 				}
 				else
 				{
-					lePlayState.startCountdown();
+					PlayState.instance.startCountdown();
 				}
 			}
 		});
