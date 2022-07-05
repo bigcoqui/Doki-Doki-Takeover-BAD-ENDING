@@ -1417,7 +1417,7 @@ class FunkinLua
 			else
 			{
 				luaTrace('Dialogue file not found');
-				if (lePlayState.endingSong)
+				if (PlayState.instance.endingSong)
 				{
           PlayState.instance.endSong();
 				}
