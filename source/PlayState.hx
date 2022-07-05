@@ -1235,8 +1235,6 @@ class PlayState extends MusicBeatState
 					if (daSong == 'roses')
 						FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
-				case 'stagnant':
-					startVideo('intro');
 				default:
 					startCountdown();
 			}
@@ -4322,7 +4320,7 @@ class PlayState extends MusicBeatState
 					ClientPrefs.saveSettings();
 					trace('home check');
 					FlxG.camera.fade(FlxColor.BLACK, 0.1, false);
-					startVideo('ending');
+					//startVideo('ending');
 				default:
 					endSong();
 			}
