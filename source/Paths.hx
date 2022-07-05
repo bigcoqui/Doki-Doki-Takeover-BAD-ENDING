@@ -25,7 +25,7 @@ using StringTools;
 class Paths
 {	
 	inline public static var SOUND_EXT = "ogg";
-	inline public static var VIDEO_EXT = "mp4";
+	inline public static var VIDEO_EXT = "";
 
 	#if MODS_ALLOWED
 	public static var ignoreModFolders:Array<String> = [
@@ -167,8 +167,13 @@ class Paths
 
 	inline static public function lua(key:String, ?library:String)
 	{
-		return getPath('$key.lua', TEXT, library);
+		return Main.path + getPath('$key.lua', TEXT, library);
 	}
+
+	inline static public function luaAsset(key:String, ?library:String)
+  {
+		return getPath('$key.lua', TEXT, library);
+  }
 
 	static public function video(key:String)
 	{
@@ -179,7 +184,7 @@ class Paths
 			return file;
 		}
 		#end
-		return SUtil.getPath() + 'assets/videos/$key.$VIDEO_EXT';
+		return 'assets/videos/$key';
 	}
 
 	static public function sound(key:String, ?library:String):Dynamic
@@ -393,7 +398,7 @@ class Paths
 
 	inline static public function modsVideo(key:String)
 	{
-		return modFolders('videos/' + key + '.' + VIDEO_EXT);
+		return modFolders('videos/' + key +);
 	}
 
 	inline static public function modsSounds(path:String, key:String)
