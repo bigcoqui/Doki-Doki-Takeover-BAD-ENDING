@@ -23,6 +23,7 @@ import openfl.display.BlendMode;
 import openfl.utils.Assets;
 import flixel.math.FlxMath;
 import flixel.addons.transition.FlxTransitionableState;
+import openfl.utils.Assets as OpenFlAssets;
 #if sys
 import sys.FileSystem;
 import sys.io.File;
@@ -1397,19 +1398,15 @@ class FunkinLua
 		});
 		Lua_helper.add_callback(lua, "startDialogue", function(dialogueFile:String, music:String = null)
 		{
-			var path:String = Paths.modsJson(Paths.formatToSongPath(PlayState.SONG.song) + '/' + dialogueFile);
-			if (!FileSystem.exists(path))
-			{
-				path = SUtil.getPath() + Paths.json(Paths.formatToSongPath(PlayState.SONG.song) + '/' + dialogueFile);
-			}
+			var path:String = Paths.json(Paths.formatToSongPath(PlayState.SONG.song) + '/' + dialogueFile);
 			luaTrace('Trying to load dialogue: ' + path);
 
-			if (FileSystem.exists(path))
+			if (OpenFlAssets.exists(path))
 			{
 				var shit:DialogueFile = DialogueBoxPsych.parseDialogue(path);
 				if (shit.dialogue.length > 0)
 				{
-					PlayState.instance.startDialogue(shit, music);
+					lePlayState.startDialogue(shit, music);
 					luaTrace('Successfully loaded dialogue');
 				}
 				else
@@ -1420,27 +1417,27 @@ class FunkinLua
 			else
 			{
 				luaTrace('Dialogue file not found');
-				if (PlayState.instance.endingSong)
+				if (lePlayState.endingSong)
 				{
-					PlayState.instance.endSong();
+					lePlayState.endSong();
 				}
 				else
 				{
-					PlayState.instance.startCountdown();
+					lePlayState.startCountdown();
 				}
 			}
 		});
 		Lua_helper.add_callback(lua, "startVideo", function(videoFile:String)
 		{
 			#if VIDEOS_ALLOWED
-			if (FileSystem.exists(Paths.video(videoFile)))
-			{
+//			if (FileSystem.exists(Paths.video(videoFile)))
+//			{
 				PlayState.instance.startVideo(videoFile);
-			}
-			else
-			{
-				luaTrace('Video file not found: ' + videoFile);
-			}
+//			}
+//			else
+//			{
+//				luaTrace('Video file not found: ' + videoFile);
+//			}
 			#else
 			if (PlayState.instance.endingSong)
 			{
