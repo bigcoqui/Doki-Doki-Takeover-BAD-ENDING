@@ -284,7 +284,7 @@ class FreeplayState extends MusicBeatState
 		{
 			if (instPlaying != curSelected)
 			{
-				#if PRELOAD_ALL
+				/*#if PRELOAD_ALL
 				destroyFreeplayVocals();
 				FlxG.sound.music.volume = 0;
 				Paths.currentModDirectory = songs[curSelected].folder;
@@ -302,7 +302,7 @@ class FreeplayState extends MusicBeatState
 				vocals.looped = true;
 				vocals.volume = 0.7;
 				instPlaying = curSelected;
-				#end
+				#end*/
 			}
 		}
 		else if (accepted)
